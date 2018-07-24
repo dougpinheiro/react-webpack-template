@@ -4,7 +4,8 @@
   "description": "A better way to find a things around.",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "webpack && webpack-dev-server --progress --color --inline --hot"
+    "dev": "webpack --config ./config/webpack-dev.config.js && webpack-dev-server --mode=development --progress --color --inline --hot",
+    "prod": "webpack --config ./config/webpack-prod.config.js"
   },
   "keywords": [
     "geolocation",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "uglify-js": "^3.4.5"
   }
 }
