@@ -1,36 +1,29 @@
 const webpack = require('webpack')
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.js',
     output: {
-        path: __dirname+'/public',
-        filename: './bundler.js'
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bundler.js'
     },
     devServer: {
         port: 8080,
-        contentBase: './public'
+        contentBase: path.resolve(__dirname, 'public')
     },
     module: {
-        loaders: [{
-            test: /.js?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query:{
-                presets: ['env', 'react'],
-                plugins: ['transform-object-rest-spread']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['env', 'react']
+                    } 
+                }
             }
-        },
-        {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-        }]
-    },
-    plugins: [
-        new ExtractTextPlugin('app.css')
-    ]
-
-    
+        ]
+    }    
 }
