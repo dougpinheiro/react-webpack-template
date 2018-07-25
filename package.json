@@ -1,17 +1,14 @@
 {
-  "name": "bestplace",
+  "name": "react-webpack-template",
   "version": "1.0.0",
-  "description": "A better way to find things around.",
+  "description": "webpack and react",
   "main": "./src/index.js",
   "scripts": {
     "dev": "webpack --mode=development",
     "dev:web": "webpack-dev-server --progress --color --inline --hot",
     "prod": "webpack --mode=production"
   },
-  "keywords": [
-    "geolocation",
-    "react"
-  ],
+  "keywords": [],
   "author": "Douglas Pinheiro",
   "license": "MIT",
   "devDependencies": {
