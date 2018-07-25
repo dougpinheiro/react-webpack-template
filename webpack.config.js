@@ -1,30 +1,29 @@
 const webpack = require('webpack')
 const path = require('path')
 
-
 module.exports = {
-    mode: 'development',
-    entry: path.resolve(__dirname, '../src/')+'/index.js',
+    mode: "development",
+    entry: path.resolve('src')+'/index.js',
     output: {
-        path: path.resolve(__dirname, '../public/'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundler.js'
     },
     devServer: {
-        port: 8080,
-        contentBase: path.resolve(__dirname, '../public/')
+        port: 3000,
+        contentBase: path.join(__dirname, 'public'),
     },
     module: {
         rules: [
             {
-                test: /\.js($|\?)/i,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ['env', 'react']
-                    } 
+                        presets: ["babel-preset-env", "babel-preset-react"]
+                    }
                 }
             }
         ]
-    }    
+    }   
 }
